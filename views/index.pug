@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  div(class="container text-center mt-4 bg-dark text-white p-5 w-75")
+    h1= title
+    p If you want to see private content login or regsiter to login.
+    div(class="btn-group w-50" role="group" )
+      a(href="/login" class="btn btn-success") Login
+      a(href="/register" class="btn btn-warning") Register

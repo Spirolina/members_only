@@ -1,0 +1,8 @@
+extends layout 
+block content 
+    div(class='container w-50 p-5 bg-dark text-white mt-5')
+        p To be able to delete messages  you have to be admin.
+        form(action="/admin"  method="post") 
+            div(class='input-group')
+                input(type='password' class='form-control' name='admin_passcode' placeholder='password to became admin')
+                button(type='submit' class='btn btn-outline-secondary') Submit

@@ -1,0 +1,8 @@
+extends layout 
+block content 
+    div(class='container w-50 p-5 bg-dark text-white mt-5')
+        p To be able to see messages' authors you have to be member.
+        form(action="/member"  method="post") 
+            div(class='input-group')
+                input(type='password' class='form-control' name='member_passcode' placeholder='password to became member')
+                button(type='submit' class='btn btn-outline-secondary') Submit

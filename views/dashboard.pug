@@ -1,0 +1,28 @@
+extends layout 
+
+block content 
+    div(class="container text-center mt-4 bg-dark text-white p-1 w-75")
+        h3 Welcome #{user.username}
+        p Write a message.
+    div(class="container text-center mt-2 bg-dark text-white p-2 w-75")
+        form(action="", method="post")
+            div(class='input-group')
+                input(type='text' class='form-control bg-dark text-white' placeholder='Your Message...' name='message')
+                button(type="submit" class='btn btn-outline-secondary' value='messageSend') Send
+    div(class="container text-center mt-2 bg-dark text-white p-2 w-75")
+        h3 Messages
+        hr 
+        each message in messages 
+           form(method='post') 
+            div(class='container d-flex position-relative flex-column mb-5 p-3 rounded bg-secondary')
+                if user.admin
+                    span(class='position-absolute translate-middle top-0 start-100') 
+                        button(type='submit' class='btn btn-danger rounded' value=message._id name='delete_message') Delete
+                div(class='author align-self-start rounded bg-dark mt-1 p-1')
+                    if user.member || user.admin                    
+                        span #{message.author.username}
+                    else 
+                        span Unkown    
+                div(class='content align-self-center bg-dark rounded w-100 m-1 p-1')
+                    p #{message.content}
+        

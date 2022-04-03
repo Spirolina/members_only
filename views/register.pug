@@ -1,0 +1,27 @@
+extends layout 
+
+block content 
+    div(class="container mb-3 mt-4 bg-dark text-white p-5 w-75")    
+        form(action="" class='m-auto w-75' method='POST')
+            h3(class='text-center') #{title}
+            hr
+            div(class='input-group mb-3')
+                span(class='input-group-text bg-dark text-white') 
+                    i(class='fa-solid fa-user')
+                input(type='text' class='form-control' name='username' id='username' placeholder='unique username..')
+            div(class='input-group mb-3')
+                span(class='input-group-text bg-dark text-white') 
+                    i(class='fa-solid fa-key')
+                input(type='password' class='form-control' name='password' id='password' placeholder='password..')
+            div(class='input-group mb-3')
+                span(class='input-group-text bg-dark text-white') 
+                    i(class='fa-solid fa-key')
+                input(type='password' class='form-control' name='password_confirmation' id='password_confirmation' placeholder='password again..')      
+            button(type="submit" class='btn btn-secondary w-100') Submit
+    div(class='container')  
+        p(class='text-center') If you already have an account Login
+        a(href='/login' class='btn btn-warning m-auto d-block w-50') Login 
+    if errors 
+        ul 
+        each error in errors 
+            li(class='text-center text-danger bg-dark d-block w-50 m-auto rounded mb-1') #{error.msg}                           
